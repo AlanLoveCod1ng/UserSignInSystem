@@ -28,6 +28,8 @@ public class UserDao {
                                 rs.getLong("id"),
                                 rs.getString("first_name"),
                                 rs.getString("second_name"),
+                                rs.getString("gender"),
+                                rs.getString("language"),
                                 rs.getString("address"),
                                 rs.getDate("birth_date"),
                                 rs.getDate("reg_date"),
@@ -46,9 +48,11 @@ public class UserDao {
      * @return void
      */
     public void insertNewUser(User user) {
-        if (1 != jdbcTemplate.update(("INSERT INTO Users (first_name, second_name, address, birth_date, reg_date, nation, phone_number) VALUES(?,?,?,?,?,?,?)"),
+        if (1 != jdbcTemplate.update(("INSERT INTO Users (first_name, second_name, gender, language ,address, birth_date, reg_date, nation, phone_number) VALUES(?,?,?,?,?,?,?,?,?)"),
                 user.getFirst_name(),
                 user.getSecond_name(),
+                user.getGender(),
+                user.getLanguage(),
                 user.getAddress(),
                 user.getBirth_date(),
                 user.getReg_date(),

@@ -24,8 +24,12 @@ public class SignInController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println(req.getParameter("first_name")+req.getParameter("second_name")+req.getParameter("address")+
                 Date.valueOf(req.getParameter("birth_date"))+ new Date(System.currentTimeMillis())+req.getParameter("nation")+req.getParameter("phone_number"));
-
-        App.insertNewUser(req.getParameter("first_name"),req.getParameter("second_name"),req.getParameter("address"),
+        String [] languages = req.getParameterValues("language");
+        String languageStr = "";
+        for (String language : languages) {
+            languageStr += language + "+";
+        }
+        App.insertNewUser(req.getParameter("first_name"),req.getParameter("second_name"),req.getParameter("gender"), languageStr,req.getParameter("address"),
                 Date.valueOf(req.getParameter("birth_date")), new Date(System.currentTimeMillis()),req.getParameter("nation"),req.getParameter("phone_number"));
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/view/SignInSuccess.jsp");

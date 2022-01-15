@@ -11,11 +11,32 @@ public class User {
     private Date reg_date;
     private String nation;
     private String phone_number;
+    private String gender;
 
-    public User(long id, String first_name, String second_name, String address, Date birth_date, Date reg_date, String nation, String phone_number) {
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    private String language;
+
+    public User(long id, String first_name, String second_name, String gender, String language,String address, Date birth_date, Date reg_date, String nation, String phone_number) {
         this.id = id;
         this.first_name = first_name;
         this.second_name = second_name;
+        this.gender = gender;
+        this.language = language;
         this.address = address;
         this.birth_date = birth_date;
         this.reg_date = reg_date;
@@ -23,9 +44,11 @@ public class User {
         this.phone_number = phone_number;
     }
 
-    public User(String first_name, String second_name, String address, Date birth_date, Date reg_date, String nation, String phone_number) {
+    public User(String first_name, String second_name, String gender, String language, String address, Date birth_date, Date reg_date, String nation, String phone_number) {
         this.first_name = first_name;
         this.second_name = second_name;
+        this.gender = gender;
+        this.language = language;
         this.address = address;
         this.birth_date = birth_date;
         this.reg_date = reg_date;

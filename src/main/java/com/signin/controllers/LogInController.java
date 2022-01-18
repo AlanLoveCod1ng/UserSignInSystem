@@ -1,5 +1,8 @@
 package com.signin.controllers;
 
+import com.signin.App;
+import com.signin.models.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -21,18 +24,25 @@ public class LogInController extends HttpServlet {
         String userName = req.getParameter("userName");
         String password = req.getParameter("password");
 
-        String encodeURL = resp.encodeURL(req.getContextPath());
-        if(userName.equals("Bingxu")&&password.equals("hbx20011124")) {
+        User user = new User();
+        try{
+            user = App.getUser(userName);
+        }catch (Exception e){
+            resp.sendRedirect(req.getContextPath()+"/login?action=login");
+            return;
+        }
+
+        if(password.equals(user.getPassword())) {
             req.getSession().invalidate();
             HttpSession newSession = req.getSession(true);
             newSession.setMaxInactiveInterval(300);
 
             HttpSession session = req.getSession(true);
             session.setAttribute("userName",userName);
-
-            resp.sendRedirect(encodeURL+"/memberPage?action=memberPage");
+            session.setAttribute("user",user);
+            resp.sendRedirect(req.getContextPath()+"/memberPage?action=memberPage");
         } else {
-            resp.sendRedirect(encodeURL+"/login?action=login");
+            resp.sendRedirect(req.getContextPath()+"/login?action=login");
         }
     }
 }

@@ -12,7 +12,9 @@
     <title>User Sign In</title>
 </head>
 <body>
-    <form action="<%= request.getContextPath()%>/SignIn" method = "POST">
+    <form action="<%= request.getContextPath()%>/signin" method = "POST">
+        User Name:<input type="text" name = "userName" required><br/>
+        Password:<input type="password" name="password" required><br/>
         First Name:<input type="text" name = "first_name" required><br/>
         Second Name:<input type="text" name = "second_name" required><br/>
         Gender: <input type="radio" name="gender" value="M" checked="checked">Male

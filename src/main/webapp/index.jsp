@@ -11,6 +11,8 @@
     <title>Title</title>
 </head>
 <body>
-<a href="<%= request.getContextPath()%>/login?action=login">Login</a>
+<a href="<%= request.getContextPath()%>/login?action=login">Login</a><br/>
+<a href="<%= request.getContextPath()%>/signin?action=login">Sign In</a>
+<a
 </body>
 </html>

@@ -4,6 +4,8 @@ import java.sql.Date;
 
 public class User {
     private long id;
+    private String userName;
+    private String password;
     private String first_name;
     private String second_name;
     private String address;
@@ -12,6 +14,22 @@ public class User {
     private String nation;
     private String phone_number;
     private String gender;
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public String getGender() {
         return gender;
@@ -31,8 +49,13 @@ public class User {
 
     private String language;
 
-    public User(long id, String first_name, String second_name, String gender, String language,String address, Date birth_date, Date reg_date, String nation, String phone_number) {
+    public User(){
+
+    }
+    public User(long id, String userName, String password, String first_name, String second_name, String gender, String language,String address, Date birth_date, Date reg_date, String nation, String phone_number) {
         this.id = id;
+        this.userName = userName;
+        this.password = password;
         this.first_name = first_name;
         this.second_name = second_name;
         this.gender = gender;
@@ -44,7 +67,9 @@ public class User {
         this.phone_number = phone_number;
     }
 
-    public User(String first_name, String second_name, String gender, String language, String address, Date birth_date, Date reg_date, String nation, String phone_number) {
+    public User(String userName, String password,String first_name, String second_name, String gender, String language, String address, Date birth_date, Date reg_date, String nation, String phone_number) {
+        this.userName = userName;
+        this.password = password;
         this.first_name = first_name;
         this.second_name = second_name;
         this.gender = gender;

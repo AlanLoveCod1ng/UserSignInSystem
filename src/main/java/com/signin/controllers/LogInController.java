@@ -1,13 +1,12 @@
 package com.signin.controllers;
 
 import com.signin.App;
-import com.signin.models.User;
+import com.signin.entity.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet("/login")
 public class LogInController extends HttpServlet {
@@ -29,6 +28,7 @@ public class LogInController extends HttpServlet {
             user = App.getUser(userName);
         }catch (Exception e){
             resp.sendRedirect(req.getContextPath()+"/login?action=login");
+            e.printStackTrace();
             return;
         }
 

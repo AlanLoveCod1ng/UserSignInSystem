@@ -1,6 +1,6 @@
 package com.signin;
 
-import com.signin.models.User;
+import com.signin.entity.User;
 import com.signin.services.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

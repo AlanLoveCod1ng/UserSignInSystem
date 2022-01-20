@@ -1,4 +1,4 @@
-<%@ page import="com.signin.models.User" %><%--
+<%@ page import="com.signin.entity.User" %><%--
   Created by IntelliJ IDEA.
   User: bingxuhu
   Date: 1/14/22

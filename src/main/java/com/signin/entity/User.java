@@ -1,18 +1,44 @@
-package com.signin.models;
+package com.signin.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.sql.Date;
 
+@Entity(name = "Users")
 public class User {
+    @Id
+    @Column(name = "id",updatable = false)
     private long id;
+
+    @Column(name = "user_name")
     private String userName;
+
+    @Column(name = "password")
     private String password;
+
+    @Column(name = "first_name")
     private String first_name;
+
+    @Column(name = "second_name")
     private String second_name;
+
+    @Column(name = "address")
     private String address;
+
+    @Column(name = "birth_date")
     private Date birth_date;
+
+    @Column(name = "reg_date")
     private Date reg_date;
+
+    @Column(name = "nation")
     private String nation;
+
+    @Column(name = "phone_number")
     private String phone_number;
+
+    @Column(name = "gender")
     private String gender;
 
     public String getUserName() {

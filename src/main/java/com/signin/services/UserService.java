@@ -1,12 +1,13 @@
 package com.signin.services;
 
 import com.signin.dao.UserDao;
-import com.signin.models.User;
+import com.signin.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
-
+@Transactional
 @Component("userService")
 public class UserService {
     @Autowired
